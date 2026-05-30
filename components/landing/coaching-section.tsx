@@ -1,0 +1,249 @@
+"use client";
+
+import { useEffect, useState, useRef } from "react";
+import { Check, Play, X } from "lucide-react";
+
+interface Video {
+  id: string;
+  youtubeUrl: string;
+  title: string;
+  description: string;
+  thumbnailUrl?: string;
+}
+
+const DEFAULT_VIDEOS: Video[] = [
+  {
+    id: "default-1",
+    youtubeUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+    title: "[ Placeholder Placeholder Placeholder Placeholder Placeholder Placeholder PlaceholderPlaceholderPlaceholder PlaceholderPlaceholderPlaceholder PlaceholderPlaceholderPlaceholderPlaceholder.]",
+    description: "[ Placeholder Placeholder Placeholder Placeholder Placeholder Placeholder PlaceholderPlaceholderPlaceholder PlaceholderPlaceholderPlaceholder PlaceholderPlaceholderPlaceholderPlaceholder.]",
+  },
+  {
+    id: "default-2",
+    youtubeUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+    title: "[ Placeholder Placeholder Placeholder Placeholder Placeholder Placeholder PlaceholderPlaceholderPlaceholder PlaceholderPlaceholderPlaceholder PlaceholderPlaceholderPlaceholderPlaceholder.]",
+    description: "[ Placeholder Placeholder Placeholder Placeholder Placeholder Placeholder PlaceholderPlaceholderPlaceholder PlaceholderPlaceholderPlaceholder PlaceholderPlaceholderPlaceholderPlaceholder.]",
+  }
+];
+
+function getYouTubeId(url: string) {
+  const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+  const match = url.match(regExp);
+  return (match && match[2].length === 11) ? match[2] : null;
+}
+
+function getThumbnail(video: Video) {
+  if (video.thumbnailUrl && video.thumbnailUrl.trim() !== "") {
+    return video.thumbnailUrl;
+  }
+  const videoId = getYouTubeId(video.youtubeUrl);
+  return videoId 
+    ? `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`
+    : "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&auto=format&fit=crop&q=60";
+}
+
+export function CoachingSection() {
+  const [mounted, setMounted] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
+  
+  // YouTube videos list
+  const videos = DEFAULT_VIDEOS;
+  const [activeVideoId, setActiveVideoId] = useState<string | null>(null);
+
+  // Counter logic
+  const [counts, setCounts] = useState({ students: 0, priority: 0 });
+
+  useEffect(() => {
+    setMounted(true);
+
+    // Intersection observer for section animations & counters
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          
+          // Animate counters
+          const duration = 2000;
+          const startTime = performance.now();
+          const animate = (time: number) => {
+            const progress = Math.min((time - startTime) / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            setCounts({
+              students: Math.floor(eased * 15000),
+              priority: Math.floor(eased * 100),
+            });
+            if (progress < 1) requestAnimationFrame(animate);
+          };
+          requestAnimationFrame(animate);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  const activeVideo = videos.find(v => v.id === activeVideoId);
+  const embedId = activeVideo ? getYouTubeId(activeVideo.youtubeUrl) : null;
+
+  return (
+    <section
+      id="coaching"
+      ref={sectionRef}
+      className="theme-flipped relative py-24 lg:py-32 overflow-hidden bg-background text-foreground"
+    >
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-12 relative z-10">
+        
+        {/* Header */}
+        <div className="mb-16 lg:mb-24">
+          <span className="inline-flex items-center gap-3 text-sm font-mono text-muted-foreground mb-6">
+            <span className="w-8 h-px bg-foreground/30" />
+            Empower
+          </span>
+          <h2 className={`text-4xl lg:text-6xl font-display tracking-tight transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
+            Professional Coaching
+            <br />
+            <span className="text-muted-foreground">and Academic Excellence.</span>
+          </h2>
+        </div>
+
+        {/* Classes Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-24">
+          {[
+            { title: "Chartered Accountancy (CA)", items: ["[ Placeholder Placeholder Placeholder Placeholder Placeholder Placeholder PlaceholderPlaceholderPlaceholder PlaceholderPlaceholderPlaceholder PlaceholderPlaceholderPlaceholderPlaceholder.]", "[ Placeholder Placeholder Placeholder Placeholder Placeholder Placeholder PlaceholderPlaceholderPlaceholder PlaceholderPlaceholderPlaceholder PlaceholderPlaceholderPlaceholderPlaceholder.]", "[ Placeholder Placeholder Placeholder Placeholder Placeholder Placeholder PlaceholderPlaceholderPlaceholder PlaceholderPlaceholderPlaceholder PlaceholderPlaceholderPlaceholderPlaceholder.]", "[ Placeholder Placeholder Placeholder Placeholder Placeholder Placeholder PlaceholderPlaceholderPlaceholder PlaceholderPlaceholderPlaceholder PlaceholderPlaceholderPlaceholderPlaceholder.]"] },
+            { title: "Cost & Management Accounting (CMA)", items: ["[ Placeholder Placeholder Placeholder Placeholder Placeholder Placeholder PlaceholderPlaceholderPlaceholder PlaceholderPlaceholderPlaceholder PlaceholderPlaceholderPlaceholderPlaceholder.]", "[ Placeholder Placeholder Placeholder Placeholder Placeholder Placeholder PlaceholderPlaceholderPlaceholder PlaceholderPlaceholderPlaceholder PlaceholderPlaceholderPlaceholderPlaceholder.]", "[ Placeholder Placeholder Placeholder Placeholder Placeholder Placeholder PlaceholderPlaceholderPlaceholder PlaceholderPlaceholderPlaceholder PlaceholderPlaceholderPlaceholderPlaceholder.]", "[ Placeholder Placeholder Placeholder Placeholder Placeholder Placeholder PlaceholderPlaceholderPlaceholder PlaceholderPlaceholderPlaceholder PlaceholderPlaceholderPlaceholderPlaceholder.]"] },
+            { title: "Company Secretary (CS)", items: ["[ Placeholder Placeholder Placeholder Placeholder Placeholder Placeholder PlaceholderPlaceholderPlaceholder PlaceholderPlaceholderPlaceholder PlaceholderPlaceholderPlaceholderPlaceholder.]", "[ Placeholder Placeholder Placeholder Placeholder Placeholder Placeholder PlaceholderPlaceholderPlaceholder PlaceholderPlaceholderPlaceholder PlaceholderPlaceholderPlaceholderPlaceholder.]", "[ Placeholder Placeholder Placeholder Placeholder Placeholder Placeholder PlaceholderPlaceholderPlaceholder PlaceholderPlaceholderPlaceholder PlaceholderPlaceholderPlaceholderPlaceholder.]", "[ Placeholder Placeholder Placeholder Placeholder Placeholder Placeholder PlaceholderPlaceholderPlaceholder PlaceholderPlaceholderPlaceholder PlaceholderPlaceholderPlaceholderPlaceholder.]"] },
+            { title: "Economics & Law", items: ["[ Placeholder Placeholder Placeholder Placeholder Placeholder Placeholder PlaceholderPlaceholderPlaceholder PlaceholderPlaceholderPlaceholder PlaceholderPlaceholderPlaceholderPlaceholder.]", "[ Placeholder Placeholder Placeholder Placeholder Placeholder Placeholder PlaceholderPlaceholderPlaceholder PlaceholderPlaceholderPlaceholder PlaceholderPlaceholderPlaceholderPlaceholder.]", "[ Placeholder Placeholder Placeholder Placeholder Placeholder Placeholder PlaceholderPlaceholderPlaceholder PlaceholderPlaceholderPlaceholder PlaceholderPlaceholderPlaceholderPlaceholder.]", "[ Placeholder Placeholder Placeholder Placeholder Placeholder Placeholder PlaceholderPlaceholderPlaceholder PlaceholderPlaceholderPlaceholder PlaceholderPlaceholderPlaceholderPlaceholder.]"] }
+          ].map((course, i) => (
+            <div
+              key={course.title}
+              className={`p-8 border border-border/20 bg-card hover-lift transition-all duration-500 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
+              style={{ transitionDelay: `${i * 100}ms` }}
+            >
+              <h3 className="font-display text-xl text-foreground mb-6">{course.title}</h3>
+              <ul className="space-y-4">
+                {course.items.map((item) => (
+                  <li key={item} className="flex items-center gap-3">
+                    <Check className="w-4 h-4 text-accent mt-0.5 shrink-0" />
+                    <span className="text-sm text-muted-foreground">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        {/* Metrics and Video Section */}
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-stretch">
+          
+          {/* Metrics Column (Col-5) */}
+          <div className="lg:col-span-5 flex flex-col justify-between gap-8">
+            <div className="space-y-8">
+              <h3 className="font-display text-3xl text-foreground">Coaching Impact</h3>
+              <p className="text-muted-foreground leading-relaxed">
+                [ Placeholder Placeholder Placeholder Placeholder Placeholder Placeholder PlaceholderPlaceholderPlaceholder PlaceholderPlaceholderPlaceholder PlaceholderPlaceholderPlaceholderPlaceholder.]
+              </p>
+            </div>
+            
+            <div className="grid grid-cols-2 gap-6 pt-8 border-t border-border/20">
+              <div className="space-y-2">
+                <span className="text-4xl lg:text-5xl font-display text-foreground tracking-tight">
+                  {mounted ? counts.students.toLocaleString() : "0"}+
+                </span>
+                <span className="block text-sm text-muted-foreground">Students Empowered</span>
+              </div>
+              <div className="space-y-2">
+                <span className="text-4xl lg:text-5xl font-display text-foreground tracking-tight">
+                  {mounted ? counts.priority : "0"}%
+                </span>
+                <span className="block text-sm text-muted-foreground">Conceptual Priority</span>
+              </div>
+            </div>
+          </div>
+
+          {/* YouTube Video Column (Col-7) */}
+          <div className="lg:col-span-7 flex flex-col justify-between">
+            <div className="space-y-6">
+              <h3 className="font-display text-3xl text-foreground flex items-center justify-between">
+                <span>Featured Lectures</span>
+                <a 
+                  href="https://youtube.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="text-xs font-mono uppercase tracking-widest text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  Explore Channel →
+                </a>
+              </h3>
+              
+              <div className="grid sm:grid-cols-2 gap-6">
+                {videos.map((vid) => (
+                  <div
+                    key={vid.id}
+                    onClick={() => setActiveVideoId(vid.id)}
+                    className="group cursor-pointer border border-border/20 bg-card overflow-hidden transition-all duration-300 hover-lift flex flex-col"
+                  >
+                    {/* Video Thumbnail area */}
+                    <div className="relative aspect-video w-full bg-black/10 overflow-hidden flex items-center justify-center">
+                      <img 
+                        src={getThumbnail(vid)}
+                        alt={vid.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                      <div className="absolute inset-0 bg-black/30 opacity-60 group-hover:opacity-20 transition-opacity" />
+                      <div className="absolute w-12 h-12 rounded-full bg-white text-primary flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                        <Play className="w-5 h-5 fill-primary ml-0.5" />
+                      </div>
+                    </div>
+
+                    {/* Video Text */}
+                    <div className="p-5 flex-1 flex flex-col justify-between">
+                      <div>
+                        <h4 className="font-display text-lg text-foreground mb-2 line-clamp-1">{vid.title}</h4>
+                        <p className="text-xs text-muted-foreground leading-relaxed line-clamp-2">{vid.description}</p>
+                      </div>
+                      <div className="mt-4 pt-3 border-t border-border/10 flex items-center justify-between text-[11px] font-mono uppercase tracking-wider text-muted-foreground group-hover:text-foreground transition-colors">
+                        <span>Watch Video</span>
+                        <span>YouTube →</span>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      {/* POPUP YOUTUBE PLAYER MODAL */}
+      {activeVideoId && embedId && (
+        <div className="fixed inset-0 bg-black/90 backdrop-blur-md z-50 flex items-center justify-center p-4">
+          <div className="relative w-full max-w-4xl aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl border border-white/10">
+            <button
+              onClick={() => setActiveVideoId(null)}
+              className="absolute top-4 right-4 z-10 text-white hover:text-white/80 p-2 rounded-full bg-black/40 hover:bg-black/60 transition-colors"
+              title="Close player"
+            >
+              <X className="w-5 h-5" />
+            </button>
+            <iframe
+              src={`https://www.youtube.com/embed/${embedId}?autoplay=1`}
+              title={activeVideo?.title || "YouTube Player"}
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className="w-full h-full"
+            />
+          </div>
+        </div>
+      )}
+
+    </section>
+  );
+}

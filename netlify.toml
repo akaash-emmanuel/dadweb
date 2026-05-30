@@ -1,0 +1,12 @@
+# --- NETLIFY TEMPORARY HOSTING CONFIG ---
+# To remove all Netlify configurations later, simply delete this netlify.toml file.
+
+[build]
+  command = "npm run build"
+  publish = "out"
+
+# Handles single-page application routing redirection for static hosting
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

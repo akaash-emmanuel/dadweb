@@ -163,13 +163,13 @@ export function AnimatedTetrahedron() {
       // Depth sort for accurate layering
       points.sort((a, b) => a.z - b.z);
 
-      // Draw all ASCII characters — navy-to-indigo gradient to match #170C79 brand palette
+      // Draw all ASCII characters — royal-blue gradient matching the new palette
       points.forEach((point) => {
         // depth: 0=back, 1=front
         const depth = Math.max(0, Math.min((point.z + 1.0) / 2.0, 1));
-        const r = Math.round(23 + (1 - depth) * 60);
-        const g = Math.round(12 + (1 - depth) * 80);
-        const b = Math.round(121 + (1 - depth) * 60);
+        const r = Math.round(58 + (1 - depth) * 85);
+        const g = Math.round(89 + (1 - depth) * 74);
+        const b = Math.round(209 + (1 - depth) * 26);
         const alpha = 0.35 + depth * 0.65;
         ctx.fillStyle = `rgba(${r},${g},${b},${Math.max(0.20, Math.min(alpha, 1.0))})`;
         ctx.fillText(point.char, point.x, point.y);

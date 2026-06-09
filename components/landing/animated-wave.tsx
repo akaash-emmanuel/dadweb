@@ -53,10 +53,10 @@ export function AnimatedWave() {
           
           const charIndex = Math.floor(normalized * (chars.length - 1));
 
-          // Wave intensity drives navy-to-indigo gradient
-          const r = Math.round(23 + (1 - normalized) * 60);
-          const g = Math.round(12 + (1 - normalized) * 80);
-          const b = Math.round(121 + (1 - normalized) * 60);
+          // Wave intensity drives royal-blue gradient
+          const r = Math.round(58 + (1 - normalized) * 85);
+          const g = Math.round(89 + (1 - normalized) * 74);
+          const b = Math.round(209 + (1 - normalized) * 26);
           const alpha = 0.05 + normalized * 0.45;
           ctx.fillStyle = `rgba(${r},${g},${b},${alpha})`;
           ctx.fillText(chars[charIndex], px, py);

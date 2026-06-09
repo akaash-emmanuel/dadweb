@@ -18,7 +18,7 @@ export function PromoMarquee() {
 
   return (
     <div 
-      className={`w-full bg-[#ECEEDF] py-12 overflow-hidden border-y border-[#170C79]/10 relative z-20 transition-all duration-700 ${
+      className={`w-full bg-background py-12 overflow-hidden border-y border-foreground/10 relative z-20 transition-all duration-700 ${
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
       }`}
     >
@@ -29,7 +29,7 @@ export function PromoMarquee() {
             {promoBanners.map((banner) => (
               <div 
                 key={banner.id}
-                className="relative w-[70vw] h-[45vw] max-h-[580px] min-h-[320px] shrink-0 border border-dashed border-[#170C79]/30 bg-[#170C79]/[0.02] rounded-3xl overflow-hidden flex flex-col items-center justify-center p-8 text-center hover:bg-[#170C79]/[0.04] transition-colors"
+                className="relative w-[70vw] h-[45vw] max-h-[580px] min-h-[320px] shrink-0 border border-dashed border-foreground/30 bg-foreground/[0.02] rounded-3xl overflow-hidden flex flex-col items-center justify-center p-8 text-center hover:bg-foreground/[0.04] transition-colors"
               >
                 {/* Image element that overrides placeholder on successful load */}
                 <img 
@@ -45,9 +45,9 @@ export function PromoMarquee() {
                 />
                 
                 {/* Fallback Placeholder Content */}
-                <span className="text-xs font-mono uppercase tracking-widest text-[#170C79]/60 mb-2">Ad Banner {banner.id}</span>
-                <h4 className="font-display text-lg md:text-2xl text-[#170C79] font-semibold px-6 whitespace-normal leading-snug max-w-lg">{banner.label}</h4>
-                <p className="text-xs text-[#170C79]/40 mt-3 font-mono">[Save 70vw image to public{banner.src}]</p>
+                <span className="text-xs font-mono uppercase tracking-widest text-foreground/60 mb-2">Ad Banner {banner.id}</span>
+                <h4 className="font-display text-lg md:text-2xl text-foreground font-semibold px-6 whitespace-normal leading-snug max-w-lg">{banner.label}</h4>
+                <p className="text-xs text-foreground/40 mt-3 font-mono">[Save 70vw image to public{banner.src}]</p>
               </div>
             ))}
           </div>

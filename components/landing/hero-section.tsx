@@ -56,16 +56,7 @@ export function HeroSection() {
       </div>
 
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12 py-32 lg:py-40">
-        {/* Eyebrow */}
-        <div
-          className={`mb-8 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-            }`}
-        >
-          <span className="inline-flex items-center gap-3 text-sm font-mono text-muted-foreground">
-            <span className="w-8 h-px bg-foreground/30" />
-            BRICS Academy
-          </span>
-        </div>
+
 
         {/* Main headline */}
         <div className="mb-12">

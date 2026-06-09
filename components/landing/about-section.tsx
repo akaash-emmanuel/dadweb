@@ -34,10 +34,9 @@ export function AboutSection() {
         <div className="mb-16 lg:mb-24">
           <span className="inline-flex items-center gap-3 text-sm font-mono text-muted-foreground mb-6">
             <span className="w-8 h-px bg-foreground/30" />
-            The Founder
           </span>
           <h2
-            className={`text-5xl lg:text-7xl font-display tracking-tight leading-[0.95] transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+            className={`text-5xl lg:text-7xl font-display tracking-tight leading-[0.85] transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
               }`}
           >
             Babu Rayipudi
@@ -50,7 +49,7 @@ export function AboutSection() {
 
           {/* Portrait Image (Left Col-5) */}
           <div
-            className={`lg:col-span-5 flex justify-center transition-all duration-1000 delay-100 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            className={`lg:col-span-5 flex justify-center lg:justify-start transition-all duration-1000 delay-100 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
               }`}
           >
             <div className="relative aspect-[3/4] w-full max-w-md border border-border bg-card flex items-center justify-center rounded-2xl group overflow-hidden shadow-lg transition-all duration-500">

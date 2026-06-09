@@ -53,12 +53,14 @@ export function AboutSection() {
             className={`lg:col-span-5 flex justify-center transition-all duration-1000 delay-100 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
               }`}
           >
-            <div className="relative aspect-[3/4] w-full max-w-md border border-dashed border-foreground/30 bg-foreground/[0.02] flex flex-col items-center justify-center p-8 rounded-2xl group overflow-hidden shadow-sm transition-colors hover:bg-foreground/[0.03]">
-              <span className="text-xs font-mono uppercase tracking-widest text-muted-foreground mb-4">Portrait</span>
-              <p className="text-sm text-center text-muted-foreground/60 max-w-xs leading-relaxed">
-                [Profile Image (3:4 ratio) - Babu Rayipudi]
-              </p>
-              <div className="absolute inset-0 border border-foreground/5 pointer-events-none rounded-2xl transition-all group-hover:scale-[0.98]" />
+            <div className="relative aspect-[3/4] w-full max-w-md border border-border bg-card flex items-center justify-center rounded-2xl group overflow-hidden shadow-lg transition-all duration-500">
+              <img
+                src="/dadmain.jpeg"
+                alt="Babu Rayipudi - Founder"
+                className="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
+              <div className="absolute inset-0 border border-foreground/5 pointer-events-none rounded-2xl" />
             </div>
           </div>
 
@@ -69,15 +71,15 @@ export function AboutSection() {
           >
             <h3 className="font-display text-4xl text-foreground">My Focus</h3>
             <p className="text-lg lg:text-xl text-muted-foreground leading-relaxed">
-              [ Placeholder Placeholder Placeholder Placeholder Placeholder Placeholder PlaceholderPlaceholderPlaceholder PlaceholderPlaceholderPlaceholder PlaceholderPlaceholderPlaceholderPlaceholder.]
+              [ Academician | Motivational Speaker | Mentor for Professional & Civil Services Aspirants and Advocate legal advisor for corporate and business laws ]
             </p>
             <p className="text-base lg:text-lg text-muted-foreground leading-relaxed">
-              [Placeholder Placeholder Placeholder Placeholder Placeholder Placeholder PlaceholderPlaceholderPlaceholder PlaceholderPlaceholderPlaceholder PlaceholderPlaceholderPlaceholderPlaceholder.]
+              Babu Rayipudi is a distinguished educator, academician, and motivational speaker with over 28 years of teaching experience. Throughout his career, he has guided thousands of students and aspirants toward academic excellence, professional success, and personal growth. With deep expertise in Law and Economics, he has been instrumental in preparing candidates for various Professional Courses and Civil Services Examinations.
             </p>
 
             <div className="p-6 border-l-2 border-foreground bg-foreground/[0.02] rounded-r-xl">
               <span className="font-display text-xl lg:text-2xl italic text-foreground block leading-relaxed">
-                "[Insert Babu Rayipudi's personal message/vision quote to students here: e.g. 'I do not teach to finish a syllabus; I guide to expand a mind.']"
+                "Education is not merely about passing examinations; it is about building character, confidence, and the capacity to make a meaningful impact on society."
               </span>
             </div>
           </div>
@@ -94,10 +96,9 @@ export function AboutSection() {
           >
             <h3 className="font-display text-4xl text-foreground">Philosophy & Approach</h3>
             <p className="text-lg lg:text-xl text-muted-foreground leading-relaxed">
-              [ Placeholder Placeholder Placeholder Placeholder Placeholder Placeholder PlaceholderPlaceholderPlaceholder PlaceholderPlaceholderPlaceholder PlaceholderPlaceholderPlaceholderPlaceholder.]
+              His teaching methodology combines conceptual clarity, practical application, and examination-oriented strategies, enabling students to develop both subject mastery and analytical thinking. He is dedicated to empowering students through knowledge, discipline, and lifelong learning.
             </p>
             <p className="text-base lg:text-lg text-muted-foreground leading-relaxed">
-              [ Placeholder Placeholder Placeholder Placeholder Placeholder Placeholder PlaceholderPlaceholderPlaceholder PlaceholderPlaceholderPlaceholder PlaceholderPlaceholderPlaceholderPlaceholder.]
             </p>
           </div>
 
@@ -106,11 +107,13 @@ export function AboutSection() {
             className={`lg:col-span-5 flex justify-center transition-all duration-1000 delay-200 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
               }`}
           >
-            <div className="relative aspect-[4/3] w-full max-w-md border border-dashed border-foreground/30 bg-foreground/[0.02] flex flex-col items-center justify-center p-8 rounded-2xl group overflow-hidden shadow-sm transition-colors hover:bg-foreground/[0.03]">
-              <span className="text-xs font-mono uppercase tracking-widest text-muted-foreground mb-4">Coaching & Study Space</span>
-              <p className="text-sm text-center text-muted-foreground/60 max-w-xs leading-relaxed">
-                [Insert Classroom or Coaching Session Image (4:3 ratio)]
-              </p>
+            <div className="relative aspect-[4/3] w-full max-w-md border border-border bg-card flex items-center justify-center rounded-2xl group overflow-hidden shadow-lg transition-all duration-500">
+              <img
+                src="/dadphil.jpeg"
+                alt="Philosophy and Approach"
+                className="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
               <div className="absolute inset-0 border border-foreground/5 pointer-events-none rounded-2xl" />
             </div>
           </div>
@@ -141,10 +144,9 @@ export function AboutSection() {
           >
             <h3 className="font-display text-4xl text-foreground">Advocacy & Counseling</h3>
             <p className="text-lg lg:text-xl text-muted-foreground leading-relaxed">
-              [ Placeholder Placeholder Placeholder Placeholder Placeholder Placeholder PlaceholderPlaceholderPlaceholder PlaceholderPlaceholderPlaceholder PlaceholderPlaceholderPlaceholderPlaceholder.]
+              As a corporate and business laws advocate and legal advisor , Babu Rayipudi integrates real-world professional expertise into his academic mentoring and career guidance. His background includes a 4-year stint working for an MNC bank. During this time, he trained several employees, gathering relevant banking experience that directly helps young people and professionals learn from his practical insights.
             </p>
             <p className="text-base lg:text-lg text-muted-foreground leading-relaxed">
-              [ Placeholder Placeholder Placeholder Placeholder Placeholder Placeholder PlaceholderPlaceholderPlaceholder PlaceholderPlaceholderPlaceholder PlaceholderPlaceholderPlaceholderPlaceholder.]
             </p>
           </div>
 
@@ -157,28 +159,28 @@ export function AboutSection() {
           <div className="relative border-l border-foreground/10 max-w-3xl mx-auto pl-8 space-y-16 py-4">
             {[
               {
-                time: "[Insert Phase 1 Timeframe: e.g. 2008 - 2012]",
-                title: "[Insert Phase 1 Heading: e.g. Academic Foundations]",
+                time: "Phase 1",
+                title: "Corporate Banking & Internal Training",
                 desc: "[ Placeholder Placeholder Placeholder Placeholder Placeholder Placeholder PlaceholderPlaceholderPlaceholder PlaceholderPlaceholderPlaceholder PlaceholderPlaceholderPlaceholderPlaceholder.]"
               },
               {
-                time: "[Insert Phase 2 Timeframe: e.g. 2012 - 2016]",
-                title: "[Insert Phase 2 Heading: e.g. Legal Practice & Early Mentoring]",
+                time: "Phase 2",
+                title: "Academic Specialization in Law and Economics",
                 desc: "[ Placeholder Placeholder Placeholder Placeholder Placeholder Placeholder PlaceholderPlaceholderPlaceholder PlaceholderPlaceholderPlaceholder PlaceholderPlaceholderPlaceholderPlaceholder.]"
               },
               {
-                time: "[Insert Phase 3 Timeframe: e.g. 2016 - 2019]",
-                title: "[Insert Phase 3 Heading: e.g. Transition to Professional Mentorship]",
+                time: "Phase 3",
+                title: "Civil Services & Professional Course Mentorship",
                 desc: "[ Placeholder Placeholder Placeholder Placeholder Placeholder Placeholder PlaceholderPlaceholderPlaceholder PlaceholderPlaceholderPlaceholder PlaceholderPlaceholderPlaceholderPlaceholder.]"
               },
               {
-                time: "[Insert Phase 4 Timeframe: e.g. 2019 - 2022]",
-                title: "[Insert Phase 4 Heading: e.g. Specializing in Student Mindset Coaching]",
+                time: "Phase 4",
+                title: "Expanding Impact as a Motivational Speaker",
                 desc: "[ Placeholder Placeholder Placeholder Placeholder Placeholder Placeholder PlaceholderPlaceholderPlaceholder PlaceholderPlaceholderPlaceholder PlaceholderPlaceholderPlaceholderPlaceholder.]"
               },
               {
-                time: "[Insert Phase 5 Timeframe: e.g. 2022 - Present]",
-                title: "[Insert Phase 5 Heading: e.g. Launching 'The step' Initiative]",
+                time: "Phase 5",
+                title: "Student Mindset, Leadership & Discipline",
                 desc: "[ Placeholder Placeholder Placeholder Placeholder Placeholder Placeholder PlaceholderPlaceholderPlaceholder PlaceholderPlaceholderPlaceholder PlaceholderPlaceholderPlaceholderPlaceholder.]"
               }
             ].map((milestone, idx) => (
@@ -215,10 +217,9 @@ export function AboutSection() {
           >
             <h3 className="font-display text-4xl text-foreground">Vision & Future Direction</h3>
             <p className="text-lg lg:text-xl text-muted-foreground leading-relaxed">
-              [ Placeholder Placeholder Placeholder Placeholder Placeholder Placeholder PlaceholderPlaceholderPlaceholder PlaceholderPlaceholderPlaceholder PlaceholderPlaceholderPlaceholderPlaceholder.]
+              Moving forward, the focus continues to rest on guiding students and young professionals through discipline, leadership, and holistic career success. The goal is to cultivate an ecosystem of lifelong learning where education serves a higher purpose: building a strong capacity to make a lasting, meaningful impact on society.
             </p>
             <p className="text-base lg:text-lg text-muted-foreground leading-relaxed">
-              [ Placeholder Placeholder Placeholder Placeholder Placeholder Placeholder PlaceholderPlaceholderPlaceholder PlaceholderPlaceholderPlaceholder PlaceholderPlaceholderPlaceholderPlaceholder.]
             </p>
           </div>
 

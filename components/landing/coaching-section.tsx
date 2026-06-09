@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useRef } from "react";
 import { Check, Play, X } from "lucide-react";
+import Link from "next/link";
 
 interface Video {
   id: string;
@@ -112,13 +113,14 @@ export function CoachingSection() {
         {/* Classes Grid */}
         <div className="grid md:grid-cols-3 gap-10 lg:gap-12 mb-36">
           {[
-            { title: "Chartered Accountancy (CA)", items: ["Business Laws.", "Strategic Managment.", "Securities Laws and Economic Laws", "Corporate and Other Laws"] },
-            { title: "Cost & Management Accounting (CMA)", items: ["Business Laws", "⁠Business Economics", "⁠Strategic Management", "Corporate and Economic Laws"] },
-            { title: "Company Secretary (CS)", items: ["Business Laws", "Business Economics", "Jurisprudence, Interpretation & General Laws (JIGL)", "Company Law & Practice", "Setting Up of Business, Industrial & Labour Laws", "Capital Market & Securities Laws", "Economic, Commercial & Intellectual Property Laws"] }
+            { id: "ca", title: "Chartered Accountancy (CA)", items: ["Business Laws.", "Strategic Managment.", "Securities Laws and Economic Laws", "Corporate and Other Laws"] },
+            { id: "cma", title: "Cost & Management Accounting (CMA)", items: ["Business Laws", "⁠Business Economics", "⁠Strategic Management", "Corporate and Economic Laws"] },
+            { id: "cs", title: "Company Secretary (CS)", items: ["Business Laws", "Business Economics", "Jurisprudence, Interpretation & General Laws (JIGL)", "Company Law & Practice", "Setting Up of Business, Industrial & Labour Laws", "Capital Market & Securities Laws", "Economic, Commercial & Intellectual Property Laws"] }
           ].map((course, i) => (
-            <div
+            <Link
               key={course.title}
-              className={`relative p-8 lg:p-10 rounded-3xl border border-border/40 bg-card/60 backdrop-blur-sm shadow-md transition-all duration-500 hover:-translate-y-2 hover:shadow-xl hover:border-primary/40 flex flex-col justify-between group ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
+              href={`/register?course=${course.id}`}
+              className={`relative p-8 lg:p-10 rounded-3xl border border-border/40 bg-card/60 backdrop-blur-sm shadow-md transition-all duration-500 hover:-translate-y-2 hover:shadow-xl hover:border-primary/40 flex flex-col justify-start group cursor-pointer ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
               style={{ transitionDelay: `${i * 150}ms` }}
             >
               {/* Card top indicator bar */}
@@ -140,12 +142,7 @@ export function CoachingSection() {
                   ))}
                 </ul>
               </div>
-              
-              <div className="mt-8 pt-6 border-t border-border/20 flex items-center justify-between text-xs font-mono uppercase tracking-widest text-muted-foreground group-hover:text-primary transition-colors">
-                <span>Core Modules</span>
-                <span>Select →</span>
-              </div>
-            </div>
+            </Link>
           ))}
         </div>
 

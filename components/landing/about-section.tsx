@@ -31,7 +31,7 @@ export function AboutSection() {
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12 relative z-10">
 
         {/* Eyebrow / Section Header */}
-        <div className="mb-16 lg:mb-24">
+        <div className="mb-6 lg:mb-10">
           <span className="inline-flex items-center gap-3 text-sm font-mono text-muted-foreground mb-6">
             <span className="w-8 h-px bg-foreground/30" />
           </span>
@@ -159,28 +159,23 @@ export function AboutSection() {
             {[
               {
                 time: "Phase 1",
-                title: "Corporate Banking & Internal Training",
-                desc: "[ Placeholder Placeholder Placeholder Placeholder Placeholder Placeholder PlaceholderPlaceholderPlaceholder PlaceholderPlaceholderPlaceholder PlaceholderPlaceholderPlaceholderPlaceholder.]"
+                title: "Academic Specializations",
+                desc: "Post Graduate and gold medalist in Economics and MBA in Strategic Management and LLB, has been in teaching for the past 28 years, teaching Law, Economics and Strategic Management for professional and competitive exams."
               },
               {
                 time: "Phase 2",
-                title: "Academic Specialization in Law and Economics",
-                desc: "[ Placeholder Placeholder Placeholder Placeholder Placeholder Placeholder PlaceholderPlaceholderPlaceholder PlaceholderPlaceholderPlaceholder PlaceholderPlaceholderPlaceholderPlaceholder.]"
+                title: "Civil Services & Professional Course Mentorship",
+                desc: "Appeared for Civil Services Exam and made up to interview level and taught Indian Economy, Geogrephy and Current Affairs, and polity mentored 100s of students across 15 cities in India."
               },
               {
                 time: "Phase 3",
-                title: "Civil Services & Professional Course Mentorship",
-                desc: "[ Placeholder Placeholder Placeholder Placeholder Placeholder Placeholder PlaceholderPlaceholderPlaceholder PlaceholderPlaceholderPlaceholder PlaceholderPlaceholderPlaceholderPlaceholder.]"
+                title: "Corporate Banking & Internal Training",
+                desc: "Worked as Assistant Manager Operations for Investment Banking in an MNC bank for about 5 years and gained corporate experience both in training and management."
               },
               {
                 time: "Phase 4",
-                title: "Expanding Impact as a Motivational Speaker",
-                desc: "[ Placeholder Placeholder Placeholder Placeholder Placeholder Placeholder PlaceholderPlaceholderPlaceholder PlaceholderPlaceholderPlaceholder PlaceholderPlaceholderPlaceholderPlaceholder.]"
-              },
-              {
-                time: "Phase 5",
                 title: "Student Mindset, Leadership & Discipline",
-                desc: "[ Placeholder Placeholder Placeholder Placeholder Placeholder Placeholder PlaceholderPlaceholderPlaceholder PlaceholderPlaceholderPlaceholder PlaceholderPlaceholderPlaceholderPlaceholder.]"
+                desc: "Passionate about Mentorship and Pesonality development of young people and drove them towards acheveing their goals and objectives, perfect motivator for young people and helped them set their goals."
               }
             ].map((milestone, idx) => (
               <div

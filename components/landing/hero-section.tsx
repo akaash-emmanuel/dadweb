@@ -138,8 +138,7 @@ export function HeroSection() {
               {[
                 { value: "100%", label: "student engagement", company: "WORKSHOPS" },
                 { value: "CA / CMA / CS", label: "professional prep", company: "CLASSES" },
-                { value: "Personalized", label: "student mentorship", company: "GUIDANCE" },
-                { value: "15-25 Years", label: "focused audience", company: "MINDSET" },
+                { value: "15-28 Years", label: "teaching & motivational experience", company: "EXPERIENCE" },
               ].map((stat) => (
                 <div key={`${stat.company}-${i}`} className="flex items-baseline gap-4">
                   <span className="text-4xl lg:text-5xl font-display">{stat.value}</span>
